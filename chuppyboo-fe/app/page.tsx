@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import BottomBar from "./component/BottomBar";
 import { useMemo, useState } from "react";
 import GameScreen from "./Game/page";
@@ -11,27 +11,27 @@ export default function Home() {
   const content = useMemo(() => {
     switch (activeTab) {
       case "Home":
-        return <span>Home</span>
+        return <span className="w-full h-full">Home</span>;
       case "Game":
-        return <GameScreen/>
+        return <GameScreen />;
       case "Boo":
-        return <BooScreen/>
+        return <BooScreen />;
       case "Battle":
-        return <BattleScreen/>
+        return <BattleScreen />;
       case "Profile":
-        return <ProfileScreen/>
+        return <ProfileScreen />;
       default:
-        return <span>Home</span>
+        return <span>Home</span>;
     }
-  }, [activeTab])
+  }, [activeTab]);
 
   const handleChangeTab = (tab: string) => {
-    setActiveTab(tab)
-  }
+    setActiveTab(tab);
+  };
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      {content}
-      <BottomBar activeTab={activeTab} onChangeTab={handleChangeTab}/>
+    <div className="bg-[#674a46] grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <div className="w-full h-full">{content}</div>
+      <BottomBar activeTab={activeTab} onChangeTab={handleChangeTab} />
     </div>
   );
 }
